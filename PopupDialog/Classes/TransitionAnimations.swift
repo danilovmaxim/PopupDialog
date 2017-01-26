@@ -45,7 +45,7 @@ import UIKit
 final internal class BounceUpTransition: TransitionAnimator {
 
     init(direction: AnimationDirection) {
-        super.init(inDuration: 0.22, outDuration: 0.2, direction: direction)
+        super.init(inDuration: 1.2, outDuration: 1.1, direction: direction)
     }
 
     override func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -54,7 +54,7 @@ final internal class BounceUpTransition: TransitionAnimator {
         switch direction {
         case .in:
             to.view.bounds.origin = CGPoint(x: 0, y: -from.view.bounds.size.height)
-            UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [.curveEaseOut], animations: {
+            UIView.animate(withDuration: inDuration, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [.curveEaseOut], animations: {
                 self.to.view.bounds = self.from.view.bounds
             }) { (completed) in
                 transitionContext.completeTransition(completed)
